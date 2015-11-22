@@ -13,6 +13,7 @@
 		277B187B1C018AFE006BE394 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 277B187A1C018AFE006BE394 /* Assets.xcassets */; };
 		277B187E1C018AFE006BE394 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277B187C1C018AFE006BE394 /* LaunchScreen.storyboard */; };
 		277B18861C018CFF006BE394 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277B18851C018CFF006BE394 /* MapKit.framework */; };
+		277B18891C0237E6006BE394 /* zoom.png in Resources */ = {isa = PBXBuildFile; fileRef = 277B18881C0237E6006BE394 /* zoom.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		277B187D1C018AFE006BE394 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		277B187F1C018AFE006BE394 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		277B18851C018CFF006BE394 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		277B18881C0237E6006BE394 /* zoom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zoom.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		277B18721C018AFE006BE394 /* POI */ = {
 			isa = PBXGroup;
 			children = (
+				277B18871C0237C0006BE394 /* icons */,
 				277B18731C018AFE006BE394 /* AppDelegate.swift */,
 				277B18751C018AFE006BE394 /* ViewController.swift */,
 				277B18771C018AFE006BE394 /* Main.storyboard */,
@@ -66,6 +69,14 @@
 				277B187F1C018AFE006BE394 /* Info.plist */,
 			);
 			path = POI;
+			sourceTree = "<group>";
+		};
+		277B18871C0237C0006BE394 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				277B18881C0237E6006BE394 /* zoom.png */,
+			);
+			name = icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +137,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				277B18891C0237E6006BE394 /* zoom.png in Resources */,
 				277B187E1C018AFE006BE394 /* LaunchScreen.storyboard in Resources */,
 				277B187B1C018AFE006BE394 /* Assets.xcassets in Resources */,
 				277B18791C018AFE006BE394 /* Main.storyboard in Resources */,

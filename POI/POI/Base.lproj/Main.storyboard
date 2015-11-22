@@ -17,22 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="br9-s6-eqA">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <animations/>
-                                <items>
-                                    <barButtonItem title="Zoom" id="OAc-Wo-L5I">
-                                        <connections>
-                                            <action selector="zoomIn:" destination="BYZ-38-t0r" id="8C2-Eb-36G"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Type" id="vKp-Zf-DhG">
-                                        <connections>
-                                            <action selector="changeMapType:" destination="BYZ-38-t0r" id="cVF-Dj-ed4"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="O3Q-kD-fWM">
                                 <rect key="frame" x="0.0" y="110" width="320" height="414"/>
                                 <animations/>
@@ -46,15 +30,42 @@
                                     <action selector="textFieldReturn:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="8gb-cO-Ows"/>
                                 </connections>
                             </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xJE-lS-rIM">
+                                <rect key="frame" x="51" y="472" width="219" height="29"/>
+                                <animations/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <color key="tintColor" red="0.0" green="0.52549019610000003" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeMapType:" destination="BYZ-38-t0r" eventType="valueChanged" id="WKs-eT-8Mp"/>
+                                </connections>
+                            </segmentedControl>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="br9-s6-eqA">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <animations/>
+                                <items>
+                                    <barButtonItem image="zoom.png" id="OAc-Wo-L5I">
+                                        <connections>
+                                            <action selector="zoomIn:" destination="BYZ-38-t0r" id="8C2-Eb-36G"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="br9-s6-eqA" firstAttribute="top" secondItem="xJE-lS-rIM" secondAttribute="bottom" constant="24" id="6nU-ct-AlO"/>
                             <constraint firstAttribute="trailing" secondItem="br9-s6-eqA" secondAttribute="trailing" id="7qs-Pw-BAT"/>
                             <constraint firstAttribute="trailing" secondItem="O3Q-kD-fWM" secondAttribute="trailing" id="8GN-by-q8t"/>
+                            <constraint firstAttribute="trailing" secondItem="xJE-lS-rIM" secondAttribute="trailing" constant="50" id="8f9-rC-OJP"/>
                             <constraint firstItem="br9-s6-eqA" firstAttribute="top" secondItem="O3Q-kD-fWM" secondAttribute="bottom" id="Cpb-jE-oZe"/>
                             <constraint firstItem="VpO-Kv-fAt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="De7-Ic-1vg"/>
                             <constraint firstItem="O3Q-kD-fWM" firstAttribute="top" secondItem="VpO-Kv-fAt" secondAttribute="bottom" constant="8" id="Gju-1C-mME"/>
+                            <constraint firstItem="xJE-lS-rIM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="51" id="J8m-gb-QIR"/>
                             <constraint firstItem="O3Q-kD-fWM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Pws-Vx-0hg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="br9-s6-eqA" secondAttribute="bottom" id="WaO-kV-acd"/>
                             <constraint firstAttribute="trailing" secondItem="VpO-Kv-fAt" secondAttribute="trailing" constant="20" id="jom-Sc-UVg"/>
@@ -66,6 +77,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="z1C-TA-4EN"/>
                     <connections>
+                        <outlet property="changeMapTypeController" destination="xJE-lS-rIM" id="pYU-QQ-FGu"/>
                         <outlet property="mapView" destination="O3Q-kD-fWM" id="NM5-jp-s4u"/>
                         <outlet property="searchText" destination="VpO-Kv-fAt" id="pl2-jE-hEd"/>
                     </connections>
@@ -94,4 +106,7 @@
             <point key="canvasLocation" x="82.133333333333326" y="-48.280000000000001"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="zoom.png" width="25" height="25"/>
+    </resources>
 </document>

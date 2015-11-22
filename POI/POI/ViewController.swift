@@ -13,6 +13,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var changeMapTypeController: UISegmentedControl!
+    
     @IBOutlet weak var searchText: UITextField!
     
     var matchingItems: [MKMapItem] = [MKMapItem]()
@@ -22,6 +24,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         mapView.delegate = self
         super.viewDidLoad()
         mapView.showsUserLocation = true
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,10 +41,12 @@ class ViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func changeMapType(sender: AnyObject) {
-        if mapView.mapType == MKMapType.Standard {
+        if changeMapTypeController.selectedSegmentIndex == 0 {
+            mapView.mapType = MKMapType.Standard
+        } else if changeMapTypeController.selectedSegmentIndex == 1 {
             mapView.mapType = MKMapType.Satellite
         } else {
-            mapView.mapType = MKMapType.Standard
+            mapView.mapType = MKMapType.Hybrid
         }
     }
 
@@ -73,22 +78,21 @@ class ViewController: UIViewController, MKMapViewDelegate {
                 print("No matches found")
             } else {
                 print("Matches found")
-            }
             
-            for item in response!.mapItems {
-                print("Name = \(item.name)")
-                print("Phone = \(item.phoneNumber)")
-                
-                self.matchingItems.append(item as MKMapItem)
-                print("Matching items = \(self.matchingItems.count)")
-                
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = item.placemark.coordinate
-                annotation.title = item.name
-                annotation.subtitle = item.phoneNumber
-                self.mapView.addAnnotation(annotation)
+                for item in response!.mapItems {
+                    print("Name = \(item.name)")
+                    print("Phone = \(item.phoneNumber)")
+                    
+                    self.matchingItems.append(item as MKMapItem)
+                    print("Matching items = \(self.matchingItems.count)")
+                    
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = item.placemark.coordinate
+                    annotation.title = item.name
+                    annotation.subtitle = item.phoneNumber
+                    self.mapView.addAnnotation(annotation)
+                }
             }
-        
         })
     }
 }
