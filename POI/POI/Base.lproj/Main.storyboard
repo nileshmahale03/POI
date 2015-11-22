@@ -34,9 +34,18 @@
                                 </items>
                             </toolbar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="O3Q-kD-fWM">
-                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="110" width="320" height="414"/>
                                 <animations/>
                             </mapView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Local Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VpO-Kv-fAt">
+                                <rect key="frame" x="20" y="72" width="280" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <connections>
+                                    <action selector="textFieldReturn:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="8gb-cO-Ows"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -44,16 +53,21 @@
                             <constraint firstAttribute="trailing" secondItem="br9-s6-eqA" secondAttribute="trailing" id="7qs-Pw-BAT"/>
                             <constraint firstAttribute="trailing" secondItem="O3Q-kD-fWM" secondAttribute="trailing" id="8GN-by-q8t"/>
                             <constraint firstItem="br9-s6-eqA" firstAttribute="top" secondItem="O3Q-kD-fWM" secondAttribute="bottom" id="Cpb-jE-oZe"/>
+                            <constraint firstItem="VpO-Kv-fAt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="De7-Ic-1vg"/>
+                            <constraint firstItem="O3Q-kD-fWM" firstAttribute="top" secondItem="VpO-Kv-fAt" secondAttribute="bottom" constant="8" id="Gju-1C-mME"/>
                             <constraint firstItem="O3Q-kD-fWM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Pws-Vx-0hg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="br9-s6-eqA" secondAttribute="bottom" id="WaO-kV-acd"/>
-                            <constraint firstItem="O3Q-kD-fWM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="nfz-rJ-aiX"/>
+                            <constraint firstAttribute="trailing" secondItem="VpO-Kv-fAt" secondAttribute="trailing" constant="20" id="jom-Sc-UVg"/>
+                            <constraint firstItem="O3Q-kD-fWM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="46" id="nfz-rJ-aiX"/>
                             <constraint firstItem="br9-s6-eqA" firstAttribute="top" secondItem="O3Q-kD-fWM" secondAttribute="bottom" id="ty3-cQ-u3D"/>
+                            <constraint firstItem="VpO-Kv-fAt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="ufk-r3-hnF"/>
                             <constraint firstItem="br9-s6-eqA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vDu-39-0yW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="z1C-TA-4EN"/>
                     <connections>
                         <outlet property="mapView" destination="O3Q-kD-fWM" id="NM5-jp-s4u"/>
+                        <outlet property="searchText" destination="VpO-Kv-fAt" id="pl2-jE-hEd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
