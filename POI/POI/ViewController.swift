@@ -95,6 +95,12 @@ class ViewController: UIViewController, MKMapViewDelegate {
             }
         })
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destination = segue.destinationViewController as! ResultsTableViewController
+        
+        destination.mapItems = self.matchingItems
+    }
 }
 
 

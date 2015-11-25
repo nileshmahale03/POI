@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -33,6 +34,7 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xJE-lS-rIM">
                                 <rect key="frame" x="51" y="472" width="219" height="29"/>
                                 <animations/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <segments>
                                     <segment title="Standard"/>
                                     <segment title="Satellite"/>
@@ -47,9 +49,14 @@
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <animations/>
                                 <items>
-                                    <barButtonItem image="zoom.png" id="OAc-Wo-L5I">
+                                    <barButtonItem title="Zoom" id="OAc-Wo-L5I">
                                         <connections>
                                             <action selector="zoomIn:" destination="BYZ-38-t0r" id="8C2-Eb-36G"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Details" id="oBg-AX-Fzc">
+                                        <connections>
+                                            <segue destination="ue0-p7-V4y" kind="push" id="lOM-xE-6zg"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -84,7 +91,69 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="515" y="-49"/>
+            <point key="canvasLocation" x="141" y="-45"/>
+        </scene>
+        <!--Results Table View Controller-->
+        <scene sceneID="aeQ-fM-XJ7">
+            <objects>
+                <tableViewController id="ue0-p7-V4y" customClass="ResultsTableViewController" customModule="POI" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="KF2-vV-WJb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultCell" id="y6q-2X-jNz" customClass="ResultsTableCell" customModule="POI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y6q-2X-jNz" id="3Ba-cf-YbR">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HzS-e0-Oiv">
+                                            <rect key="frame" x="8" y="0.0" width="304" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkJ-hO-eF5">
+                                            <rect key="frame" x="8" y="14" width="304" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="fkJ-hO-eF5" firstAttribute="top" secondItem="3Ba-cf-YbR" secondAttribute="topMargin" constant="6" id="NJt-j6-lhi"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="HzS-e0-Oiv" secondAttribute="bottom" constant="14.5" id="PP6-3O-Shp"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="fkJ-hO-eF5" secondAttribute="bottom" constant="0.5" id="QSl-3c-wpI"/>
+                                        <constraint firstItem="fkJ-hO-eF5" firstAttribute="leading" secondItem="HzS-e0-Oiv" secondAttribute="leading" id="V2w-pt-izx"/>
+                                        <constraint firstItem="fkJ-hO-eF5" firstAttribute="trailing" secondItem="3Ba-cf-YbR" secondAttribute="trailingMargin" id="dZW-nl-n9X"/>
+                                        <constraint firstItem="HzS-e0-Oiv" firstAttribute="top" secondItem="3Ba-cf-YbR" secondAttribute="top" id="edM-JL-Urq"/>
+                                        <constraint firstItem="fkJ-hO-eF5" firstAttribute="leading" secondItem="3Ba-cf-YbR" secondAttribute="leadingMargin" id="eqS-d3-ePM"/>
+                                        <constraint firstItem="HzS-e0-Oiv" firstAttribute="trailing" secondItem="fkJ-hO-eF5" secondAttribute="trailing" id="evu-kF-HuT"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <outlet property="nameLabel" destination="HzS-e0-Oiv" id="kcU-DL-f75"/>
+                                    <outlet property="phoneLabel" destination="fkJ-hO-eF5" id="jct-bh-Eez"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ue0-p7-V4y" id="FQ2-0w-ecr"/>
+                            <outlet property="delegate" destination="ue0-p7-V4y" id="aiD-Dj-E5Q"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Fo6-iz-uMB"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="53c-79-nmV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="585" y="-45"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ret-TN-2zt">
@@ -103,10 +172,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j6Q-HV-Xb7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="82.133333333333326" y="-48.280000000000001"/>
+            <point key="canvasLocation" x="-292" y="-45"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="zoom.png" width="25" height="25"/>
-    </resources>
 </document>
